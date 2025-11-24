@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Expo
+.expo/
+.expo-shared/
+*.expo
+
+# Build output
+android/
+ios/
+dist/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# VS Code
+.vscode/
+.history/
+
+# Mac / Windows system files
+.DS_Store
+Thumbs.db
+
+# JetBrains IDEs
+.idea/
+
+# Misc
+coverage/
