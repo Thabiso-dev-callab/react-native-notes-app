@@ -23,7 +23,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
       Alert.alert('Login failed', 'Invalid credentials');
       return;
     }
-    onLogin(user); // ✅ AppStack automatically switches to ProtectedStack
+    onLogin(user); 
   };
 
   return (
@@ -44,7 +44,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
         secureTextEntry
       />
       <Button title="Login" onPress={handleLogin} />
-      <View style={{ height: 12 }} />
+      <View style={{ height: 13 }} />
       <Button title="Register" onPress={() => navigation.navigate('Register' as any)} />
     </View>
   );
