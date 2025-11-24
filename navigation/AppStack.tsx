@@ -1,4 +1,4 @@
-// navigation/AppStack.tsx
+
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,9 +12,7 @@ import { getData } from '../services/AuthService';
 import type { User } from '../services/AuthService';
 import { JSX } from 'react/jsx-runtime';
 
-/**
- * Navigation param lists
- */
+
 export type AuthStackParamList = {
   Login: undefined;
   Register: undefined;
@@ -35,16 +33,11 @@ export type ProtectedStackParamList = {
   Profile: { userId: string };
 };
 
-/**
- * Stacks
- */
+
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const ProtectedStack = createNativeStackNavigator<ProtectedStackParamList>();
 
-/**
- * Auth stack screens (Login/Register)
- * - LoginScreen expects an onLogin prop, so we wrap it to inject onLogin
- */
+
 function AuthStackScreens({ onLogin }: { onLogin: (user: User) => void }): JSX.Element {
   return (
     <AuthStack.Navigator screenOptions={{ headerShown: false }}>
@@ -56,11 +49,6 @@ function AuthStackScreens({ onLogin }: { onLogin: (user: User) => void }): JSX.E
   );
 }
 
-/**
- * Protected stack screens (Notes, NoteDetail, AddEditNote, Profile)
- * NotesScreen and ProfileScreen expect extra props (loggedInUser, onLogout)
- * so we wrap them here to inject those props while preserving navigation props.
- */
 function ProtectedStackScreens({
   loggedInUser,
   onLogout,
@@ -82,7 +70,7 @@ function ProtectedStackScreens({
 
       <ProtectedStack.Screen
         name="NoteDetail"
-        // NoteDetail receives navigation/route automatically; callers may pass onDelete/onSave via params
+       
         component={NoteDetailScreen}
         options={{ title: 'Note Detail' }}
       />
@@ -106,10 +94,7 @@ function ProtectedStackScreens({
   );
 }
 
-/**
- * Root AppStack component
- * - loads persisted loggedInUser and conditionally renders Auth vs Protected stacks
- */
+
 export default function AppStack(): JSX.Element | null {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);

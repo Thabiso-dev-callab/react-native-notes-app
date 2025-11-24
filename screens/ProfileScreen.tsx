@@ -22,7 +22,7 @@ export default function ProfileScreen({ loggedInUser, onLogout }: ProfileScreenP
 
   const handleLogout = async () => {
     await logoutUser();
-    onLogout(); // ✅ Switches to AuthStack
+    onLogout(); 
   };
 
   return (

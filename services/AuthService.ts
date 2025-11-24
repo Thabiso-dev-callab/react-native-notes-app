@@ -1,4 +1,4 @@
-// services/AuthService.ts
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type User = {
@@ -8,9 +8,6 @@ export type User = {
   password: string;
 };
 
-/**
- * Generic set/get helpers with JSON (typed)
- */
 export const saveData = async <T = unknown>(key: string, value: T): Promise<void> => {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value));
@@ -30,10 +27,7 @@ export const getData = async <T = any>(key: string): Promise<T | null> => {
   }
 };
 
-/**
- * Registers a new user and makes them the logged-in user.
- * Returns the created user, or null if email already exists.
- */
+
 export const registerUser = async (
   username: string,
   email: string,
@@ -42,7 +36,7 @@ export const registerUser = async (
   try {
     const users: User[] = (await getData<User[]>('users')) || [];
 
-    // simple duplicate check on email
+    
     if (users.find(u => u.email === email)) return null;
 
     const newUser: User = { id: Date.now().toString(), username, email, password };
@@ -58,9 +52,7 @@ export const registerUser = async (
   }
 };
 
-/**
- * Logs in a user by email/password, saves to loggedInUser on success.
- */
+
 export const loginUser = async (email: string, password: string): Promise<User | null> => {
   try {
     const users: User[] = (await getData<User[]>('users')) || [];
@@ -73,9 +65,7 @@ export const loginUser = async (email: string, password: string): Promise<User |
   }
 };
 
-/**
- * Logs out the current user (removes loggedInUser key)
- */
+
 export const logoutUser = async (): Promise<void> => {
   try {
     await AsyncStorage.removeItem('loggedInUser');

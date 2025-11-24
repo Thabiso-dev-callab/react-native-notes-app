@@ -81,7 +81,6 @@ export default function NotesScreen({
 
   return (
     <View style={styles.container}>
-      {/* Top Toolbar */}
       <View style={styles.toolbar}>
         <TouchableOpacity onPress={handleLogout} style={styles.toolbarButton}>
           <MaterialIcons name="logout" size={28} color="#FF4B5C" />
@@ -147,7 +146,6 @@ export default function NotesScreen({
         />
       )}
 
-      {/* Floating Add Button */}
       <TouchableOpacity
         style={styles.fab}
         onPress={() => navigation.navigate('AddEditNote', { category })}

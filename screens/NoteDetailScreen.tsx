@@ -4,7 +4,7 @@ import { getAllNotes, deleteNote, Note } from '../services/NoteService';
 
 type NoteDetailRouteParams = {
   noteId?: string;
-  // optional callbacks passed from NotesScreen
+ 
   onDelete?: () => Promise<void> | void;
   onSave?: () => Promise<void> | void;
 };
@@ -28,9 +28,9 @@ export default function NoteDetailScreen({ route, navigation }: any) {
     try {
       if (!noteId) return;
       await deleteNote(noteId);
-      // inform parent to refresh list if callback present
+      
       if (onDelete) await onDelete();
-      // then go back
+     
       navigation.goBack();
     } catch (err) {
       console.error('delete error', err);
@@ -55,7 +55,7 @@ export default function NoteDetailScreen({ route, navigation }: any) {
     navigation.navigate('AddEditNote', {
       noteId: note.id,
       category: note.category,
-      // forward onSave so after edit the list refreshes
+      
       onSave,
     });
   };
