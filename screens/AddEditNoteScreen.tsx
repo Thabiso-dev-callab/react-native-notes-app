@@ -1,4 +1,4 @@
-// screens/AddEditNoteScreen.tsx
+
 import React, { useEffect, useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { addNote, getAllNotes, updateNote } from '../services/NoteService';
@@ -10,7 +10,7 @@ export default function AddEditNoteScreen({ route, navigation }: any) {
   const [cat, setCat] = useState(category || 'General');
   const [saving, setSaving] = useState(false);
 
-  // Load existing note if editing
+  
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -45,7 +45,7 @@ export default function AddEditNoteScreen({ route, navigation }: any) {
         await addNote({ title, content, category: cat });
       }
 
-      // Safely go back if possible; otherwise navigate to Notes
+      
       if (navigation.canGoBack()) {
         navigation.goBack();
       } else {
@@ -91,5 +91,5 @@ export default function AddEditNoteScreen({ route, navigation }: any) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
-  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, borderRadius: 8, marginBottom: 12 },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, borderRadius: 9, marginBottom: 12 },
 });
