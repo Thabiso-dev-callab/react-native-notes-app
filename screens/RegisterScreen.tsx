@@ -33,5 +33,5 @@ export default function RegisterScreen() {
 
 const styles = StyleSheet.create({
   container:{flex:1,justifyContent:'center',padding:20},
-  input:{borderWidth:1,borderColor:'#ccc',padding:10,marginBottom:12,borderRadius:8}
+  input:{borderWidth:1,borderColor:'#ccc',padding:10,marginBottom:13,borderRadius:8}
 });
